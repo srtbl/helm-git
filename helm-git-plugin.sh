@@ -171,6 +171,7 @@ helm_dependency_update() {
 
   # Ensure exists at least empty
   helm_args=${helm_args:-}
+  tar xvzf $_target_path/*/*.tgz --directory "$_target_path/.."
 
   # Prevent infinity loop when calling helm-git plugin
   if ${HELM_GIT_DEPENDENCY_CIRCUITBREAKER:-false};  then
